@@ -19,10 +19,11 @@
 .iv-row:nth-child(4){animation-delay:.32s}
 @keyframes ivIn{to{opacity:1;transform:translateY(0)}}
 
+/* --- UPDATED ICON SIZES --- */
 .iv-icon{
-  width:78px;height:78px;border-radius:20px;
+  width:60px;height:60px;border-radius:16px;
   background: linear-gradient(180deg,#050507,#11111a);
-  display:flex;align-items:center;justify-content:center;flex:0 0 78px;
+  display:flex;align-items:center;justify-content:center;flex:0 0 60px;
   border:1px solid rgba(255,255,255,.14);
   box-shadow: 0 18px 45px rgba(0,0,0,.28);
   position:relative;
@@ -59,7 +60,7 @@
   content:"";
   position:absolute;
   inset:-2px;
-  border-radius:22px;
+  border-radius:16px;
   background: radial-gradient(60% 60% at 30% 25%, rgba(255,255,255,.08), transparent 60%);
   pointer-events:none;
 }
@@ -71,7 +72,6 @@
   }
 }
 
-/* Hover burst for the color splashes (row 3 icon) */
 .iv-splash{
   transform-box: fill-box;
   transform-origin: center;
@@ -100,12 +100,15 @@
 .iv-title{font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin:0 0 6px;font-size:18px}
 .iv-text{margin:0;color:#222;line-height:1.65;font-size:14px}
 
-.iv-icon svg{width:52px;height:52px;position:relative;z-index:1}
+/* --- UPDATED SVG SIZES --- */
+.iv-icon svg{width:36px;height:36px;position:relative;z-index:1}
 .iv-stroke{stroke:#fff;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.96}
 
 @media(max-width:600px){
-  .iv-icon{width:64px;height:64px;flex-basis:64px;border-radius:18px}
-  .iv-icon svg{width:44px;height:44px}
+  /* --- UPDATED MOBILE SIZES --- */
+  .iv-icon{width:50px;height:50px;flex-basis:50px;border-radius:14px}
+  .iv-icon::after{border-radius:14px}
+  .iv-icon svg{width:30px;height:30px}
   .iv-title{font-size:16px}
   .iv-text{font-size:13.5px}
 }
@@ -135,9 +138,7 @@
         </line>
       </svg>
     </div>
-
     <div class="iv-divider" aria-hidden="true"></div>
-
     <div>
       <div class="iv-title">TATUOINNIT</div>
       <p class="iv-text">
@@ -161,9 +162,7 @@
         </path>
       </svg>
     </div>
-
     <div class="iv-divider" aria-hidden="true"></div>
-
     <div>
       <div class="iv-title">MUKAUTETTU PIIRUSTUS</div>
       <p class="iv-text">
@@ -172,7 +171,7 @@
     </div>
   </div>
 
-  <!-- 3) TATUOINTISUUNNITTELU (computer + COLOR SPLASHES on screen + hover spray) -->
+  <!-- 3) TATUOINTISUUNNITTELU -->
   <div class="iv-row">
     <div class="iv-icon" aria-hidden="true">
       <svg viewBox="0 0 100 100" fill="none">
@@ -193,80 +192,37 @@
             <stop offset="100%" stop-color="#00b3ff"/>
           </radialGradient>
         </defs>
-
-        <!-- monitor -->
         <rect x="16" y="24" width="68" height="42" rx="10" class="iv-stroke"/>
         <path d="M24 32 H76" class="iv-stroke" opacity=".55"/>
-
-        <!-- stand -->
         <path d="M46 68 H54" class="iv-stroke"/>
         <path d="M50 66 V76" class="iv-stroke"/>
         <path d="M36 78 H64" class="iv-stroke"/>
-
-        <!-- COLOR SPLASHES (animated + hover spray via .iv-splash variables) -->
         <g opacity="0.98">
-          <!-- main blob -->
-          <path class="iv-splash" style="--dx: 6px; --dy: -5px"
-                d="M40 44
-                   C42 38 50 36 55 39
-                   C61 42 64 48 61 54
-                   C58 60 52 61 47 59
-                   C42 57 38 51 40 44 Z"
-                fill="url(#iv-splash-a)">
-            <animateTransform attributeName="transform" type="scale"
-                              values="1;1.03;1" dur="1.6s" repeatCount="indefinite"
-                              additive="sum" />
+          <path class="iv-splash" style="--dx: 6px; --dy: -5px" d="M40 44 C42 38 50 36 55 39 C61 42 64 48 61 54 C58 60 52 61 47 59 C42 57 38 51 40 44 Z" fill="url(#iv-splash-a)">
+            <animateTransform attributeName="transform" type="scale" values="1;1.03;1" dur="1.6s" repeatCount="indefinite" additive="sum" />
             <animate attributeName="opacity" values="0.86;1;0.86" dur="1.6s" repeatCount="indefinite"/>
           </path>
-
-          <!-- secondary blob -->
-          <path class="iv-splash" style="--dx: -7px; --dy: 4px"
-                d="M34 52
-                   C35 48 39 46 43 47
-                   C48 48 50 52 48 56
-                   C46 60 41 61 38 59
-                   C35 57 33 55 34 52 Z"
-                fill="url(#iv-splash-b)" opacity="0.92">
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;0.8 -0.6;0 0" dur="1.4s" repeatCount="indefinite"/>
+          <path class="iv-splash" style="--dx: -7px; --dy: 4px" d="M34 52 C35 48 39 46 43 47 C48 48 50 52 48 56 C46 60 41 61 38 59 C35 57 33 55 34 52 Z" fill="url(#iv-splash-b)" opacity="0.92">
+            <animateTransform attributeName="transform" type="translate" values="0 0;0.8 -0.6;0 0" dur="1.4s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="0.7;0.95;0.7" dur="1.4s" repeatCount="indefinite"/>
           </path>
-
-          <!-- accent streak -->
-          <path class="iv-splash" style="--dx: 5px; --dy: 6px"
-                d="M52 52
-                   C57 50 62 52 63 56
-                   C64 60 60 63 56 63
-                   C52 63 49 60 50 57
-                   C50.5 55 51.5 53.5 52 52 Z"
-                fill="url(#iv-splash-c)" opacity="0.88">
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;-0.6 0.8;0 0" dur="1.8s" repeatCount="indefinite"/>
+          <path class="iv-splash" style="--dx: 5px; --dy: 6px" d="M52 52 C57 50 62 52 63 56 C64 60 60 63 56 63 C52 63 49 60 50 57 C50.5 55 51.5 53.5 52 52 Z" fill="url(#iv-splash-c)" opacity="0.88">
+            <animateTransform attributeName="transform" type="translate" values="0 0;-0.6 0.8;0 0" dur="1.8s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="0.65;0.92;0.65" dur="1.8s" repeatCount="indefinite"/>
           </path>
-
-          <!-- droplets -->
-          <circle class="iv-splash" style="--dx: 8px; --dy: -10px"
-                  cx="68" cy="46" r="2.1" fill="url(#iv-splash-b)" opacity="0.0">
+          <circle class="iv-splash" style="--dx: 8px; --dy: -10px" cx="68" cy="46" r="2.1" fill="url(#iv-splash-b)" opacity="0.0">
             <animate attributeName="opacity" values="0;1;0" dur="1.25s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;2 -6;0 0" dur="1.25s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;2 -6;0 0" dur="1.25s" repeatCount="indefinite"/>
           </circle>
-          <circle class="iv-splash" style="--dx: -9px; --dy: -11px"
-                  cx="31" cy="44" r="1.8" fill="url(#iv-splash-c)" opacity="0.0">
+          <circle class="iv-splash" style="--dx: -9px; --dy: -11px" cx="31" cy="44" r="1.8" fill="url(#iv-splash-c)" opacity="0.0">
             <animate attributeName="opacity" values="0;1;0" dur="1.25s" begin=".2s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;-2 -7;0 0" dur="1.25s" begin=".2s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;-2 -7;0 0" dur="1.25s" begin=".2s" repeatCount="indefinite"/>
           </circle>
-          <circle class="iv-splash" style="--dx: 7px; --dy: 11px"
-                  cx="58" cy="62" r="1.7" fill="url(#iv-splash-a)" opacity="0.0">
+          <circle class="iv-splash" style="--dx: 7px; --dy: 11px" cx="58" cy="62" r="1.7" fill="url(#iv-splash-a)" opacity="0.0">
             <animate attributeName="opacity" values="0;1;0" dur="1.25s" begin=".35s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;1 6;0 0" dur="1.25s" begin=".35s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;1 6;0 0" dur="1.25s" begin=".35s" repeatCount="indefinite"/>
           </circle>
         </g>
-
-        <!-- stencil dots -->
         <g opacity=".4">
           <circle cx="30" cy="44" r="1.6" fill="white">
             <animate attributeName="opacity" values=".12;.7;.12" dur="1.6s" repeatCount="indefinite"/>
@@ -278,8 +234,6 @@
             <animate attributeName="opacity" values=".12;.7;.12" dur="1.6s" begin=".5s" repeatCount="indefinite"/>
           </circle>
         </g>
-
-        <!-- scan line -->
         <line x1="20" y1="36" x2="80" y2="36" stroke="white" stroke-width="2" opacity=".18">
           <animate attributeName="y1" values="36;62;36" dur="1.7s" repeatCount="indefinite"/>
           <animate attributeName="y2" values="36;62;36" dur="1.7s" repeatCount="indefinite"/>
@@ -287,9 +241,7 @@
         </line>
       </svg>
     </div>
-
     <div class="iv-divider" aria-hidden="true"></div>
-
     <div>
       <div class="iv-title">TATUOINTISUUNNITTELU</div>
       <p class="iv-text">
@@ -304,69 +256,36 @@
   <div class="iv-row">
     <div class="iv-icon" aria-hidden="true">
       <svg viewBox="0 0 100 100" fill="none">
-        <!-- nozzle tip -->
         <path d="M46 10 H54 L56 22 H44 Z" class="iv-stroke"/>
-        <!-- collar -->
         <rect x="40" y="22" width="20" height="16" rx="3" class="iv-stroke"/>
-        <!-- grip ring -->
         <path d="M34 38 H66" class="iv-stroke"/>
-        <!-- drips on ring -->
         <path d="M42 38 V48 M50 38 V50 M58 38 V48" class="iv-stroke"/>
-
-        <!-- bottle body (rounded) -->
-        <path d="M30 58
-                 C30 46 38 42 50 42
-                 C62 42 70 46 70 58
-                 V78
-                 C70 90 62 94 50 94
-                 C38 94 30 90 30 78 Z"
-              class="iv-stroke"/>
-
-        <!-- label lines -->
+        <path d="M30 58 C30 46 38 42 50 42 C62 42 70 46 70 58 V78 C70 90 62 94 50 94 C38 94 30 90 30 78 Z" class="iv-stroke"/>
         <path d="M38 62 H62" class="iv-stroke"/>
         <path d="M38 86 H62" class="iv-stroke"/>
-
-        <!-- center drop icon -->
-        <path d="M50 66
-                 C46 72 44 74 44 78
-                 C44 83 47.5 86 50 86
-                 C52.5 86 56 83 56 78
-                 C56 74 54 72 50 66 Z"
-              class="iv-stroke"/>
-
-        <!-- INK text -->
-        <text x="50" y="58" fill="white" font-size="10.5" font-weight="900"
-              text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="1.1">INK</text>
-
-        <!-- tiny ink splash from top (near nozzle) -->
+        <path d="M50 66 C46 72 44 74 44 78 C44 83 47.5 86 50 86 C52.5 86 56 83 56 78 C56 74 54 72 50 66 Z" class="iv-stroke"/>
+        <text x="50" y="58" fill="white" font-size="10.5" font-weight="900" text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="1.1">INK</text>
         <g fill="white">
-          <path d="M50 26 C49 30 52 32 50 36" stroke="white" stroke-width="3"
-                stroke-linecap="round" stroke-dasharray="18" stroke-dashoffset="18" opacity=".9">
+          <path d="M50 26 C49 30 52 32 50 36" stroke="white" stroke-width="3" stroke-linecap="round" stroke-dasharray="18" stroke-dashoffset="18" opacity=".9">
             <animate attributeName="stroke-dashoffset" from="18" to="0" dur="1.1s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values=".15;.9;.15" dur="1.1s" repeatCount="indefinite"/>
           </path>
-
           <circle cx="44" cy="32" r="2.0" opacity="0">
             <animate attributeName="opacity" values="0;1;0" dur="1.1s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;-2 -6;0 0" dur="1.1s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;-2 -6;0 0" dur="1.1s" repeatCount="indefinite"/>
           </circle>
           <circle cx="56" cy="33" r="2.0" opacity="0">
             <animate attributeName="opacity" values="0;1;0" dur="1.1s" begin=".12s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;2 -7;0 0" dur="1.1s" begin=".12s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;2 -7;0 0" dur="1.1s" begin=".12s" repeatCount="indefinite"/>
           </circle>
           <circle cx="50" cy="36" r="1.7" opacity="0">
             <animate attributeName="opacity" values="0;1;0" dur="1.1s" begin=".22s" repeatCount="indefinite"/>
-            <animateTransform attributeName="transform" type="translate"
-                              values="0 0;0 -8;0 0" dur="1.1s" begin=".22s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="1.1s" begin=".22s" repeatCount="indefinite"/>
           </circle>
         </g>
       </svg>
     </div>
-
     <div class="iv-divider" aria-hidden="true"></div>
-
     <div>
       <div class="iv-title">PEITTOTATUOINNIT</div>
       <p class="iv-text">
